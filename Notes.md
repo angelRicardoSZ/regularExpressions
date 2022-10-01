@@ -6,7 +6,7 @@ expression  --  usage
 
 -----------------------------------------------------------------------------------------------
 
-*           --  Matches the previous element zero or more times  
+'*'         --  Matches the previous element zero or more times  
             
             example:
             
@@ -54,7 +54,7 @@ expression  --  usage
             
             
 -----------------------------------------------------------------------------------------------
-+          Matches the previous element one or more times.
+'+'        Matches the previous element one or more times.
            
            example:            
             
@@ -66,6 +66,123 @@ expression  --  usage
            test_text = qwe1230c456rty  
            pattern selected =0c
            
+           
+-----------------------------------------------------------------------------------------------
+'?'         Matches the previous element zero or one time.
+
+            example:      
+            
+            regex = 0?c   -- search the character '0' before c, 0 or one time
+            
+            test_text = qwe123c456rty  
+            pattern selected = c
+            
+            test_text = qwe1230c456rty  
+            pattern selected = 0c
+            
+            test_text = qwe123000000c456rty  
+            pattern selected = 0c
+            
+            
+-----------------------------------------------------------------------------------------------
+'.'         Wildcard: Matches any single character except \n 
+
+            example:      
+            
+            regex = a.e   -- any character except newline between a and e
+            
+            test_text = ae
+            pattern selected = the regular expression does not match the subject string.
+            
+            test_text = ade
+            pattern selected = ade
+            
+            test_text = acce
+            pattern selected = the regular expression does not match the subject string.
+            
+            
+            regex = ab.cd
+            
+            test_text = ab1cd
+            pattern selected = ab1cd
+            
+            test_text = ab1cd
+            pattern selected = ab1cd
+            
+            test_text = ab44cd
+            pattern selected = ab44cd
+            
+            
+            regex = a.*e
+            
+            test_text = ae
+            pattern selected = ae
+            
+            test_text = a1#$()58e
+            pattern selected = a1#$()58e
+            
+
+
+-----------------------------------------------------------------------------------------------
+            
+'{ n }'      Matches the previous element exactly n times
+            
+             regex = ",\d{3}"
+            
+             pattern = ",043" in "1,043.6", ",876", ",543", and ",210" in "9,876,543,210"
+            
+ '{ n , m } ' Matches the previous element at least n times, but no more than m times. 
+ 
+            regex = \d{3,5}
+            
+            test_text = 193024
+            pattern selected = "166", "17668", "19302"
+            
+ -----------------------------------------------------------------------------------------------
+ 
+ '*?'       Matches the previous element zero or more times, but as few times as possible.
+ 
+            regex = a.*?c
+            
+            test_text = abcbc
+            pattern selected = abc
+            
+            test_text = abcabcabc
+            pattern selected = abc, abc, abc
+            
+    -----------------------------------------------------------------------------------------------
+    '+?'    Matches the previous element one or more times, but as few times as possible.
+            regex = be+?
+            
+            test_text = been
+            pattern selected = be
+            
+            
+            
+  
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+           
+           
+        
            
            
            

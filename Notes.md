@@ -158,6 +158,24 @@ expression  --  usage
             pattern selected = be
             
             
+     -----------------------------------------------------------------------------------------------
+     Problema: define a pattern that matches all lines except the last one, the one with letters
+     555658
+     56-58-11
+     56.58.11
+     56.78-98
+     65 09 87
+     76y87r98
+     '(\d{2}\W?){3}'  -- search the pattern "digit digit nonword" three times           
+     
+     
+     -----------------------------------------------------------------------------------------------
+     
+     
+     
+            
+            
+            
             
   
             
